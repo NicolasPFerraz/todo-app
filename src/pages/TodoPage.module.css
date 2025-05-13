@@ -1,0 +1,18 @@
+.todoPage {
+  display: flex;
+  flex-direction: column;
+  width: 230px;
+  gap: 30px;
+}
+
+.todoPage main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 40px;
+  width: 100%;
+}
+
+.todoPage section {
+  width: 100%;
+}

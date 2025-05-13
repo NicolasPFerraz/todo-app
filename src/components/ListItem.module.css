@@ -1,0 +1,36 @@
+.taskListItem {
+  display: flex;
+  align-items: center;
+  height: 30px;
+}
+
+.taskListItem .checkButton {
+  height: 100%;
+  color: none;
+  border: none;
+  background-color: transparent;
+}
+
+.taskListItem .deleteButton {
+  height: 100%;
+  color: none;
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  text-align: end;
+}
+
+.taskListItem .checkIcon {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.taskListItem .taskText {
+  margin-left: 10px;
+}
+
+.taskListItem .deleteIcon {
+  font-size: 22px;
+  color: #EC4B3D;
+  cursor: pointer;
+}
