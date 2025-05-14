@@ -13,20 +13,19 @@ export default function TaskForm() {
     console.log(newTask)
   }
 
-  const handleSubmit = (e) => {
+  const handleOnSubmit = (e) => {
     e.preventDefault()
-    // Adiciona a task
     console.log(newTask)
-    setNewTask('') // Limpa o input após o submit
   }
 
   return (
     <>
-      <AddTaskInput
-        value={newTask}
-        onChange={handleOnChange}
-        onSubmit={handleSubmit}
-      />
+      <form onSubmit={handleOnSubmit}>
+        <AddTaskInput
+          taskText={newTask}
+          onChange={handleOnChange}
+        />
+      </form>
     </>
   )
 }

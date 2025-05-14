@@ -3,14 +3,13 @@ import styles from './AddTaskInput.module.css'
 // Import react icons
 import { GoPlus } from "react-icons/go";
 
-export default function AddTaskInput({ value, onChange, onSubmit }) {
-
+export default function AddTaskInput({ taskText, onChange }) {
   return (
     <form className={styles.addTask} onSubmit={onSubmit}>
       <input
         className={styles.addTaskInput}
         type="text"
-        value={value}
+        value={taskText}
         onChange={onChange}
         placeholder="Digite seu todo"
       />
