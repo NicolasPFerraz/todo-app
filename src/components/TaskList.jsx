@@ -24,7 +24,7 @@ export default function TaskList() {
         {tasks.map((task) => (
           <ListItem
             key={task.id}
-            id={task.id} 
+            id={task.id}
             taskText={task.text}
             handleDelete={handleDelete}
             handleCheck={handleCheck}
