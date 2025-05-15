@@ -1,6 +1,5 @@
 const API_URL = 'http://localhost:3000/tasks'
 
-
 // Function to fetch all tasks
 export async function fetchTasks() {
   try {
@@ -21,7 +20,7 @@ export async function addTask(task) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(task),
+      body: JSON.stringify(),
     });
     if (!response.ok) throw new Error('Failed to fetch task');
     return await response.json();

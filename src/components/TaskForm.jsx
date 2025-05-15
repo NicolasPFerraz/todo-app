@@ -7,7 +7,7 @@ import AddTaskInput from './AddTaskInput'
 
 export default function TaskForm() {
 
-  const [newTask, setNewTask] = useState('')
+  const [newTask, setNewTask] = useState()
 
   const handleOnChange = (e) => {
     setNewTask(e.target.value)
@@ -23,7 +23,7 @@ export default function TaskForm() {
       setNewTask('')
     } catch (error) {
       alert('Erro ao adicionar tarefa')
-      console.error('Error adding task:', error)
+      console.error(error)
     }
   }
 
