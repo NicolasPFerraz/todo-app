@@ -1,6 +1,7 @@
 import styles from './TaskForm.module.css'
 
 import { useState } from 'react'
+import { addTask } from '../services/taskService'
 
 import AddTaskInput from './AddTaskInput'
 
@@ -10,12 +11,20 @@ export default function TaskForm() {
 
   const handleOnChange = (e) => {
     setNewTask(e.target.value)
-    console.log(newTask)
   }
 
-  const handleOnSubmit = (e) => {
+  const handleOnSubmit = async(e) => {
     e.preventDefault()
-    console.log(newTask)
+    const trimedTask = newTask.trim()
+    if (!trimedTask) return
+
+    try {
+      await addTask({ description: trimedTask, completed: false })
+      setNewTask('')
+    } catch (error) {
+      alert('Erro ao adicionar tarefa')
+      console.error('Error adding task:', error)
+    }
   }
 
   return (
