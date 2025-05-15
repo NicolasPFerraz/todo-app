@@ -24,6 +24,7 @@ export default function TaskForm() {
         <AddTaskInput
           taskText={newTask}
           onChange={handleOnChange}
+          onSubmit={handleOnSubmit}
         />
       </form>
     </>
