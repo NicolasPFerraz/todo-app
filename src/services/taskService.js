@@ -20,7 +20,7 @@ export async function addTask(task) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(),
+      body: JSON.stringify(task),
     });
     if (!response.ok) throw new Error('Failed to fetch task');
     return await response.json();

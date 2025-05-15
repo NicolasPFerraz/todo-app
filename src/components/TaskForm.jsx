@@ -7,7 +7,7 @@ import AddTaskInput from './AddTaskInput'
 
 export default function TaskForm() {
 
-  const [newTask, setNewTask] = useState()
+  const [newTask, setNewTask] = useState('')
 
   const handleOnChange = (e) => {
     setNewTask(e.target.value)
