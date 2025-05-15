@@ -3,9 +3,9 @@ import styles from './AddTaskInput.module.css'
 // Import react icons
 import { GoPlus } from "react-icons/go";
 
-export default function AddTaskInput({ taskText, onChange, onSubmit }) {
+export default function AddTaskInput({ taskText, onChange }) {
   return (
-    <form className={styles.addTask} onSubmit={onSubmit}>
+    <div className={styles.addTask}>
       <input
         className={styles.addTaskInput}
         type="text"
@@ -16,6 +16,6 @@ export default function AddTaskInput({ taskText, onChange, onSubmit }) {
       <button className={styles.addButton} type="submit">
         <GoPlus />
       </button>
-    </form>
+    </div>
   )
 }
