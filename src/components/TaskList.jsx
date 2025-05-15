@@ -1,12 +1,26 @@
 import styles from './TaskList.module.css'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { fetchTasks } from '../services/taskService'
 
 import ListItem from './ListItem'
 
 export default function TaskList() {
 
-  const [tasks, setTasks] = useState([{ id: 1, text: 'Estudar React', completed: false }, { id: 2, text: 'Estudar Python', completed: false} ])
+  const [tasks, setTasks] = useState([])
+
+  useEffect(() => {
+    async function loadTasks() {
+      try {
+        const data = await fetchTasks()
+        setTasks(data)
+      } catch (error) {
+        alert('Erro ao retornar tarefas')
+        console.error(error)
+      }
+    }
+    loadTasks()
+  }, [tasks])
 
   const handleCheck = (e) => {
 
@@ -25,7 +39,7 @@ export default function TaskList() {
           <ListItem
             key={task.id}
             id={task.id}
-            taskText={task.text}
+            taskText={task.description}
             handleDelete={handleDelete}
             handleCheck={handleCheck}
           />
