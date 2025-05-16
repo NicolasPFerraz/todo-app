@@ -2,7 +2,6 @@
 .taskContainer {
   display: flex;
   align-items: center;
-  height: 30px;
 }
 
 /* Checkbox container: centers the check icon */
@@ -10,7 +9,7 @@
   display: flex;
   align-items: center;
   width: 208px;
-  height: 30px;
+  height: auto;
 }
 
 /* Check button: removes border, background, and default color */
