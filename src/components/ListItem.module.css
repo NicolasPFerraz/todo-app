@@ -1,17 +1,47 @@
-.taskListItem {
+/* Main container for the task: aligns items horizontally and sets height */
+.taskContainer {
   display: flex;
   align-items: center;
   height: 30px;
 }
 
-.taskListItem .checkButton {
+/* Checkbox container: centers the check icon */
+.taskContainer .checkBoxContainer {
+  display: flex;
+  align-items: center;
+  width: 208px;
+  height: 30px;
+}
+
+/* Check button: removes border, background, and default color */
+.taskContainer .checkButton {
   height: 100%;
+  width: 30px;
   color: none;
   border: none;
   background-color: transparent;
 }
 
-.taskListItem .deleteButton {
+/* Check icon: increases size and shows pointer cursor on hover */
+.taskContainer .checkIcon {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* Checked icon: applies strikethrough to text */
+.taskContainer .completedTask {
+  text-decoration: line-through;
+}
+
+/* Task text: adds left margin, full width, and left alignment */
+.taskContainer .taskText {
+  margin: 0 10px 0 10px;
+  width: 100%;
+  text-align: start;
+}
+
+/* Delete button: removes border, background, default color, and aligns right */
+.taskContainer .deleteButton {
   height: 100%;
   color: none;
   border: none;
@@ -19,22 +49,8 @@
   text-align: end;
 }
 
-.taskListItem .checkIcon {
-  font-size: 30px;
-  cursor: pointer;
-}
-
-.taskListItem .checkedIcon {
-  text-decoration: line-through;
-}
-
-.taskListItem .taskText {
-  margin-left: 10px;
-  width: 100%;
-  text-align: start;
-}
-
-.taskListItem .deleteIcon {
+/* Delete icon: sets size, red color, and pointer cursor */
+.taskContainer .deleteIcon {
   font-size: 22px;
   color: #EC4B3D;
   cursor: pointer;
