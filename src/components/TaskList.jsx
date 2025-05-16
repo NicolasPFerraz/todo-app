@@ -8,6 +8,14 @@ import ListItem from './ListItem'
 export default function TaskList() {
 
   const [tasks, setTasks] = useState([])
+  const completedTasks =
+    [...tasks]
+      .filter(task => task.completed)
+      .reverse()
+    const orderedTasks =
+    [...tasks]
+      .filter(task => !task.completed)
+      .concat(completedTasks)
 
   useEffect(() => {
     async function loadTasks() {
@@ -58,7 +66,7 @@ export default function TaskList() {
       <h2>Minhas tarefas</h2>
       <span className={styles.line}></span>
       <ul className={styles.taskListItems}>
-        {tasks.map((task) => (
+        {orderedTasks.map((task) => (
           <ListItem
             key={task.id}
             id={task.id}
