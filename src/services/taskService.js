@@ -38,7 +38,7 @@ export async function updateTaskStatus(taskId, status) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ status }),
+      body: JSON.stringify(status),
     });
     if (!response.ok) throw new Error('Failed to update task status');
     return await response.json();

@@ -1,17 +1,21 @@
 import styles from './ListItem.module.css'
 
 // Import react icons
-import { IoIosCheckboxOutline } from "react-icons/io";
+import { IoIosCheckboxOutline, IoIosCheckbox } from "react-icons/io";
 import { FiTrash2 } from "react-icons/fi";
 
-export default function TaskListItem({ id, taskText, handleDelete, handleCheck }) {
+export default function TaskListItem({ id, taskText, completed, handleDelete, handleCheck }) {
   return (
     <li className={styles.taskListItem} key={id}>
       <button
         className={styles.checkButton}
-        onClick={handleCheck}
+        onClick={() => handleCheck(id)}
       >
-        <IoIosCheckboxOutline className={styles.checkIcon} />
+        {!completed ? (
+          <IoIosCheckboxOutline className={styles.checkIcon} />
+        ) : (
+          <IoIosCheckbox className={styles.checkIcon} />
+        )}
       </button>
 
       <span className={styles.taskText}>
@@ -20,7 +24,7 @@ export default function TaskListItem({ id, taskText, handleDelete, handleCheck }
 
       <button
         className={styles.deleteButton}
-        onClick={handleDelete}>
+        onClick={() => handleDelete(id)}>
         <FiTrash2 className={styles.deleteIcon} />
       </button>
     </li>

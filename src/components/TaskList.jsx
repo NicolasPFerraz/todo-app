@@ -1,7 +1,7 @@
 import styles from './TaskList.module.css'
 
 import { useState, useEffect } from 'react'
-import { fetchTasks } from '../services/taskService'
+import { fetchTasks, updateTaskStatus, deleteTask } from '../services/taskService'
 
 import ListItem from './ListItem'
 
@@ -22,12 +22,35 @@ export default function TaskList() {
     loadTasks()
   }, [tasks])
 
-  const handleCheck = (e) => {
+  const handleCheck = async (id) => {
+    try {
+      // Find the task that was clicked
+      const task = tasks.find(task => task.id === id)
+      const updated = await updateTaskStatus(id, {
+        completed: !task.completed
+      })
 
+      // Update the local state
+      setTasks(tasks.map(t => t.id === id ? {
+        ...t, completed: updated.completed
+      } : t))
+    } catch (error) {
+      alert('Erro ao atualizar tarefa')
+      console.error(error)
+    }
   }
 
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
+    try {
+      // Find the task that was clicked
+      await deleteTask(id)
 
+      // Update the local state
+      setTasks(tasks.filter(t => t.id !== id))
+    } catch (error) {
+      alert('Erro ao deletar tarefa')
+      console.error(error)
+    }
   }
 
   return (
@@ -40,6 +63,7 @@ export default function TaskList() {
             key={task.id}
             id={task.id}
             taskText={task.description}
+            completed={task.completed}
             handleDelete={handleDelete}
             handleCheck={handleCheck}
           />

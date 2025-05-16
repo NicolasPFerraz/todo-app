@@ -24,6 +24,10 @@
   cursor: pointer;
 }
 
+.taskListItem .checkedIcon {
+  text-decoration: line-through;
+}
+
 .taskListItem .taskText {
   margin-left: 10px;
   width: 100%;
