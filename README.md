@@ -11,7 +11,7 @@ Um aplicativo simples e funcional de lista de tarefas, desenvolvido com React.
 
 ## 💻 Screenshot
 
-![Demonstração do aplicativo](/public/demo.png)
+![Demonstração do aplicativo](public/demo.png)
 
 ## 📦 Como instalar e rodar localmente
 
