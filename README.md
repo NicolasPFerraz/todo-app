@@ -13,6 +13,11 @@ Um aplicativo simples e funcional de lista de tarefas, desenvolvido com React.
 
 ![Screenshot](https://github.com/nicolaspferraz/todo-app/raw/main/public/demo.png)
 
+## 🌐 Deploy
+
+Este projeto está hospedado no GitHub Pages e pode ser acessado em:  
+https://nicolaspferraz.github.io/todo-app/
+
 ## 📦 Como instalar e rodar localmente
 
 1. Clone o repositório:
