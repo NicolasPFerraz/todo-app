@@ -1,7 +1,5 @@
 const API_URL = import.meta.env.VITE_API_URL
 
-console.log('API_URL:', API_URL);
-
 // Function to fetch all tasks
 export async function fetchTasks() {
   try {
@@ -36,7 +34,7 @@ export async function addTask(task) {
 export async function updateTaskStatus(taskId, status) {
   try {
     const response = await fetch(`${API_URL}/${taskId}`, {
-      method: 'PATCH',
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },

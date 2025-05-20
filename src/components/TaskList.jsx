@@ -12,23 +12,24 @@ export default function TaskList() {
     [...tasks]
       .filter(task => task.completed)
       .reverse()
-    const orderedTasks =
+  const orderedTasks =
     [...tasks]
       .filter(task => !task.completed)
       .concat(completedTasks)
 
-  useEffect(() => {
-    async function loadTasks() {
-      try {
-        const data = await fetchTasks()
-        setTasks(data)
-      } catch (error) {
-        alert('Erro ao retornar tarefas')
-        console.error(error)
-      }
+  async function loadTasks() {
+    try {
+      const data = await fetchTasks()
+      setTasks(data)
+    } catch (error) {
+      alert('Erro ao retornar tarefas')
+      console.error(error)
     }
+  }
+
+  useEffect(() => {
     loadTasks()
-  }, [tasks])
+  }, [])
 
   const handleCheck = async (id) => {
     try {
@@ -42,6 +43,7 @@ export default function TaskList() {
       setTasks(tasks.map(t => t.id === id ? {
         ...t, completed: updated.completed
       } : t))
+      loadTasks()
     } catch (error) {
       alert('Erro ao atualizar tarefa')
       console.error(error)
@@ -55,6 +57,7 @@ export default function TaskList() {
 
       // Update the local state
       setTasks(tasks.filter(t => t.id !== id))
+      loadTasks()
     } catch (error) {
       alert('Erro ao deletar tarefa')
       console.error(error)
