@@ -1,5 +1,6 @@
-require('dotenv').config()
-const API_URL = process.env.API_URL || 'http://localhost:3000/tasks';
+const API_URL = import.meta.env.VITE_API_URL
+
+console.log('API_URL:', API_URL);
 
 // Function to fetch all tasks
 export async function fetchTasks() {
