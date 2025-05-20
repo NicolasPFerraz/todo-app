@@ -1,13 +1,13 @@
 import './App.css'
 
 import Container from './layout/Container'
-import TodoPage from './pages/TodoPage'
+import TodoApp from './pages/TodoApp'
 
 function App() {
   return (
     <>
       <Container>
-        <TodoPage />
+        <TodoApp />
       </ Container>
     </>
   )

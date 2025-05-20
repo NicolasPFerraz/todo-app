@@ -5,7 +5,7 @@ import { addTask } from '../services/taskService'
 
 import AddTaskInput from './AddTaskInput'
 
-export default function TaskForm() {
+export default function TaskForm({ onTaskAdded }) {
 
   const [newTask, setNewTask] = useState('')
 
@@ -13,14 +13,15 @@ export default function TaskForm() {
     setNewTask(e.target.value)
   }
 
-  const handleOnSubmit = async(e) => {
+  const handleOnSubmit = async (e) => {
     e.preventDefault()
-    const trimedTask = newTask.trim()
-    if (!trimedTask) return
+    const trimmedTask = newTask.trim()
+    if (!trimmedTask) return
 
     try {
-      await addTask({ description: trimedTask, completed: false })
+      await addTask({ description: trimmedTask, completed: false })
       setNewTask('')
+      if (onTaskAdded) onTaskAdded()
     } catch (error) {
       alert('Erro ao adicionar tarefa')
       console.error(error)

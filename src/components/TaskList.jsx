@@ -1,45 +1,17 @@
 import styles from './TaskList.module.css'
-
-import { useState, useEffect } from 'react'
-import { fetchTasks, updateTaskStatus, deleteTask } from '../services/taskService'
-
 import ListItem from './ListItem'
 
-export default function TaskList() {
+import { useState, useEffect } from 'react'
+import { updateTaskStatus, deleteTask } from '../services/taskService'
 
-  const [tasks, setTasks] = useState([])
-  const completedTasks =
-    [...tasks]
-      .filter(task => task.completed)
-      .reverse()
-  const orderedTasks =
-    [...tasks]
-      .filter(task => !task.completed)
-      .concat(completedTasks)
 
-  async function loadTasks() {
-    try {
-      const data = await fetchTasks()
-      setTasks(data)
-    } catch (error) {
-      alert('Erro ao retornar tarefas')
-      console.error(error)
-    }
-  }
-
-  useEffect(() => {
-    loadTasks()
-  }, [])
-
+export default function TaskList({ tasks, setTasks, loadTasks }) {
   const handleCheck = async (id) => {
     try {
-      // Find the task that was clicked
       const task = tasks.find(task => task.id === id)
       const updated = await updateTaskStatus(id, {
         completed: !task.completed
       })
-
-      // Update the local state
       setTasks(tasks.map(t => t.id === id ? {
         ...t, completed: updated.completed
       } : t))
@@ -52,10 +24,7 @@ export default function TaskList() {
 
   const handleDelete = async (id) => {
     try {
-      // Find the task that was clicked
       await deleteTask(id)
-
-      // Update the local state
       setTasks(tasks.filter(t => t.id !== id))
       loadTasks()
     } catch (error) {
@@ -63,6 +32,15 @@ export default function TaskList() {
       console.error(error)
     }
   }
+
+  const completedTasks =
+    [...tasks]
+      .filter(task => task.completed)
+      .reverse()
+  const orderedTasks =
+    [...tasks]
+      .filter(task => !task.completed)
+      .concat(completedTasks)
 
   return (
     <div className={styles.taskList}>
