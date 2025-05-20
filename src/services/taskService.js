@@ -1,4 +1,5 @@
-const API_URL = 'http://localhost:3000/tasks'
+require('dotenv').config()
+const API_URL = process.env.API_URL || 'http://localhost:3000/tasks';
 
 // Function to fetch all tasks
 export async function fetchTasks() {
