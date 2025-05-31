@@ -1,6 +1,6 @@
 # 📝 Todo App
 
-Um aplicativo simples e funcional de lista de tarefas, desenvolvido com React.
+Um aplicativo simples e funcional de lista de tarefas, desenvolvido com React. O principal objetivo aqui foi aprender React
 
 ## 🚀 Funcionalidades
 
